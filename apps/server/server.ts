@@ -1,12 +1,14 @@
 import express from "express";
 import { products } from "./products";
 import fs from 'fs';
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
 
 app.use(express.static("../client/dist"));
 app.use(express.static("public"));
+app.use(cors())
 
 
 
