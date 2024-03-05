@@ -1,14 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
+import { products } from "./products";
 const app = express();
 const port = 3000;
 
 app.use(express.static("../client/dist"));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/api/products", (req, res) => {
+  res.json(products);
 });
 
 app.get("/api/image/:file", (req, res) => {
