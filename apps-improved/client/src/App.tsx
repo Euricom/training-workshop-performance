@@ -7,6 +7,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Products from "./pages/Products.tsx";
+import BigDate from "./pages/BigDate.tsx";
 
 const App = () =>  {
   return (
@@ -16,6 +17,7 @@ const App = () =>  {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/bigdate" element={<BigDate />} />
         </Routes>
     </BrowserRouter>
     </>
