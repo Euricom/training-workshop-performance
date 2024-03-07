@@ -1,12 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Navbar } from "./Navbar";
+import Home from "./pages/Home.tsx";
+import "./index.css";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Products from "./pages/Products.tsx";
 
-function App() {
-
+const App = () =>  {
   return (
     <>
-    <h1> Performance</h1> 
+     <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Products" element={<Products />} />
+        </Routes>
+    </BrowserRouter>
     </>
   );
 }
