@@ -4,11 +4,11 @@ export const Navbar = () => {
   return (
     <nav className='flex gap-2'>
         <Link to="/">Home</Link>
-        <Link to="/Products">Products</Link>
-        <Link to="/Markdown">Markdown</Link>
-        <Link to="/BigDate">BigDate</Link>
-        <Link to="/Calculator">Calculator</Link>
-        <Link to="/Users">Users</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/markdown">Markdown</Link>
+        <Link to="/bigdate">BigDate</Link>
+        <Link to="/calculator">Calculator</Link>
+        <Link to="/users">Users</Link>
     </nav>
   )
 }
