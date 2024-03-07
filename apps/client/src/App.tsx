@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "./pages/Products.tsx";
 import BigDate from "./pages/BigDate.tsx";
 import Calculator from "./pages/Calculator.tsx";
+import Markdown from "./pages/Markdown.tsx";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/bigdate" element={<BigDate />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/markdown" element={<Markdown />} />
         </Routes>
       </BrowserRouter>
     </div>
