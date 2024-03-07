@@ -2,14 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import express from "express";
 import { products } from "./products";
-import cors from 'cors';
+import cors from "cors";
 
 const app = express();
 const port = 3000;
 
 app.use(express.static("../client/dist"));
 app.use(express.static("public"));
-app.use(cors())
+app.use(cors());
 
 app.get("/api/products", (req, res) => {
   res.json(products);
@@ -26,6 +26,13 @@ app.get("/api/image/:file", (req, res) => {
   res.type(path.extname(req.params.file).slice(1));
   res.setHeader("cache-control", "public, max-age=3600");
   stream.pipe(res);
+});
+
+app.get("/api/markdown", (req, res) => {
+  const markdown = fs.readFileSync("./public/markdown.md", {
+    encoding: "utf8",
+  });
+  res.json(markdown);
 });
 
 app.listen(port, () => {
