@@ -8,6 +8,7 @@ import BigDate from "./pages/BigDate.tsx";
 import Calculator from "./pages/Calculator.tsx";
 import MarkdownPage from "./pages/Markdown.tsx";
 import Users from "./pages/Users.tsx";
+import { RouterElement } from "./routes/index.ts";
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -16,14 +17,7 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/bigdate" element={<BigDate />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/markdown" element={<MarkdownPage />} />
-            <Route path="/users" element={<Users />} />
-          </Routes>
+          <RouterElement />
         </BrowserRouter>
       </QueryClientProvider>
     </div>
