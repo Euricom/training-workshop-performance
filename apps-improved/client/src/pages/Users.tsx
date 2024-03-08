@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/api/users?page=${page}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data.users);
-      });
-  }, [page]);
+  const { isLoading, error, data, refetch } = useQuery(["users", page], () =>
+    fetch(`http://localhost:3000/api/users?page=${page}`).then((res) =>
+      res.json().then((data) => data.users)
+    )
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <>
@@ -34,7 +35,7 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => {
+            {data.map((user, index) => {
               return (
                 <tr
                   key={index}
@@ -64,6 +65,7 @@ const Users = () => {
         <button
           onClick={() => {
             setPage(page + 1);
+            refetch();
           }}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
