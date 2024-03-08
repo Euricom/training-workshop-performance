@@ -2,9 +2,17 @@ import express from "express";
 import { products } from "./products";
 import fs from "fs";
 import cors from "cors";
+import { faker } from "@faker-js/faker";
 
 const app = express();
 const port = 3000;
+
+// Function to generate random number
+const randomNumber = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 app.use(express.static("../client/dist"));
 app.use(express.static("public"));
@@ -31,6 +39,22 @@ app.get("/api/markdown", (req, res) => {
     encoding: "utf8",
   });
   res.json(markdown);
+});
+
+app.get("/api/users", (req, res) => {
+  const users = [] as any[];
+  for (let i = 0; i < 2000; i++) {
+    users.push({
+      name: faker.person.firstName,
+      lastname: faker.person.lastName,
+      email: faker.internet.email(),
+      imageUrl: `https://xsgames.co/randomusers/assets/avatars/male/${randomNumber(
+        1,
+        70
+      )}.jpg`,
+    });
+  }
+  res.json(users);
 });
 
 app.listen(port, () => {
