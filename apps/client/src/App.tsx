@@ -10,17 +10,19 @@ import Users from "./pages/Users.tsx";
 
 const App = () => {
   return (
-    <div className="p-2">
+    <div>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/bigdate" element={<BigDate />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/markdown" element={<Markdown />} />
-          <Route path="/users" element={<Users />} />
-        </Routes>
+        <div className="p-2">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/bigdate" element={<BigDate />} />
+            <Route path="/calculator" element={<Calculator />} />
+            <Route path="/markdown" element={<Markdown />} />
+            <Route path="/users" element={<Users />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
