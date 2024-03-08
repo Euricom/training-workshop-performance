@@ -1,17 +1,16 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
+const Users = () => {
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("http://localhost:3000/api/users")
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);
+        console.log(data);
+        setUsers(data);
       });
   }, []);
-
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -21,16 +20,18 @@ const Products = () => {
               Image
             </th>
             <th scope="col" className="px-6 py-3">
-              Product
+              FirstName
             </th>
             <th scope="col" className="px-6 py-3">
-              Price
+              LastName
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Email
             </th>
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => {
-            const imageSrc = `http://localhost:3000/api/image/${product.imageFile}`;
+          {users.map((user, index) => {
             return (
               <tr
                 key={index}
@@ -38,16 +39,19 @@ const Products = () => {
               >
                 <td className="p-4">
                   <img
-                    src={imageSrc}
+                    src={user.imageUrl}
                     className="w-16 md:w-32 max-w-full max-h-full"
                     alt="Apple Watch"
                   />
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  {product.name}
+                  {user.firstname}
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  {product.price}
+                  {user.lastname}
+                </td>
+                <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                  {user.email}
                 </td>
               </tr>
             );
@@ -58,4 +62,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Users;

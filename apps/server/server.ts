@@ -45,8 +45,8 @@ app.get("/api/users", (req, res) => {
   const users = [] as any[];
   for (let i = 0; i < 2000; i++) {
     users.push({
-      name: faker.person.firstName,
-      lastname: faker.person.lastName,
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
       email: faker.internet.email(),
       imageUrl: `https://xsgames.co/randomusers/assets/avatars/male/${randomNumber(
         1,

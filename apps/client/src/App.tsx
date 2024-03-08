@@ -6,6 +6,7 @@ import Products from "./pages/Products.tsx";
 import BigDate from "./pages/BigDate.tsx";
 import Calculator from "./pages/Calculator.tsx";
 import Markdown from "./pages/Markdown.tsx";
+import Users from "./pages/Users.tsx";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/bigdate" element={<BigDate />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/markdown" element={<Markdown />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
       </BrowserRouter>
     </div>
