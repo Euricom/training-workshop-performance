@@ -43,6 +43,7 @@ const Users = () => {
                 >
                   <td className="p-4">
                     <img
+                      loading="lazy"
                       src={user.imageUrl}
                       className="w-16 md:w-32 max-w-full max-h-full"
                       alt="Apple Watch"
