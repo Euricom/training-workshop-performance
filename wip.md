@@ -109,3 +109,13 @@ function App() {
 - https://github.com/GoogleChrome/web-vitals
 - https://web.dev/articles/vitals
 - https://simonhearne.com/2022/caching-header-best-practices/
+
+
+
+
+- https://medium.com/java-performance/performance-is-the-enemy-of-clean-code-fdd65c4c7d99
+- https://javascript.plainenglish.io/get-the-best-performance-on-your-next-js-app-f407cc25d1f9
+- https://million.dev/
+- https://daily.dev/blog/react-19-everything-you-need-to-know-in-one-place
+- https://www.youtube.com/watch?v=VkezQMb1DHw&t=166s
+- 
