@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav className="flex gap-6 items-center shadow-md h-12 p-2">
       <Link to="/" className="flex space-x-3 mr-auto">
         <img src={euricomLogo} className="h-8" alt="Euricom logo" />
-        <span className=" text-2xl font-semibold ">Performance app</span>
+        <span className=" text-2xl font-semibold ">Slow app</span>
       </Link>
 
       <Link to="/">Home</Link>
