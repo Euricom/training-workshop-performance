@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import markdownIt from "markdown-it";
 import sanitizeHtml from "sanitize-html";
 
+// Tip1: markdownIt and sanitizeHtml are large libraries, consider using smaller alternatives
+// Tip2: use lazy components, so the large library is only loaded when needed
+
 const Markdown = () => {
   const md = markdownIt();
   const [markdown, setMarkdown] = useState("");

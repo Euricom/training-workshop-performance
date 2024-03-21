@@ -6,7 +6,7 @@ const MarkdownPage = () => {
 
   useEffect(() => {
     fetch("http://localhost:3000/api/markdown")
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         console.log(data);
         setMarkdown(data);

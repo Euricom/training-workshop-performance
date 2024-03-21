@@ -2,7 +2,8 @@ import { Navbar } from "./Navbar";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { RouterElement } from "./routes/index.ts";
+import { Routes } from "./routes.tsx";
+import { Suspense } from "react";
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -12,7 +13,9 @@ const App = () => {
         <BrowserRouter>
           <Navbar />
           <div className="p-2">
-            <RouterElement />
+            <Suspense fallback={<p> Loading...</p>}>
+              <Routes />
+            </Suspense>
           </div>
         </BrowserRouter>
       </QueryClientProvider>

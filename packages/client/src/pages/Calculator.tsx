@@ -1,6 +1,8 @@
 import React from "react";
 import _ from "lodash";
 
+// Tip: make sure you only import the add function from lodash  (lodash/add or lodash-es)
+
 const Calculator = () => {
   const [result, setResult] = React.useState<number>();
   const submit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,33 +1,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
-import { products } from "./products";
+import { getProductFromDb } from "./products";
 import cors from "cors";
-import { faker } from "@faker-js/faker";
-
-// Function to generate random number
-const randomNumber = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-// Generate 2000 random users
-const allUsers = Array.from({ length: 2000 }, () => ({
-  firstname: faker.person.firstName(),
-  lastname: faker.person.lastName(),
-  email: faker.internet.email(),
-  imageUrl: `https://xsgames.co/randomusers/assets/avatars/male/${randomNumber(1, 70)}.jpg`,
-}));
+import { getUsersFromDb } from "./users";
 
 const app = express();
 const port = 3000;
 
-app.use(express.static("../client/dist"));
+app.use(express.static("../client-improved/dist"));
 app.use(express.static("public"));
 app.use(cors());
 
-app.get("/api/products", (req, res) => {
+app.get("/api/products", async (req, res) => {
+  const products = await getProductFromDb();
   res.json(products);
 });
 
@@ -45,13 +31,14 @@ app.get("/api/image/:file", (req, res) => {
 });
 
 // Endpoint to get paginated users
-app.get("/api/users", (req, res) => {
+app.get("/api/users", async (req: any, res) => {
   const page = parseInt(req.query.page) || 1; // default to page 1 if not provided
   const pageSize = parseInt(req.query.pageSize) || 20; // default page size to 20 if not provided
 
   const startIndex = (page - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
+  const allUsers = await getUsersFromDb();
   const users = allUsers.slice(startIndex, endIndex);
 
   res.json({
@@ -64,10 +51,22 @@ app.get("/api/users", (req, res) => {
 });
 
 app.get("/api/markdown", (req, res) => {
-  const markdown = fs.readFileSync("./public/markdown.md", {
-    encoding: "utf8",
+  const stream = fs.createReadStream("./public/markdown.md");
+  stream.on("error", function (e) {
+    res.status(404).send("Not found");
+    return;
   });
-  res.json(markdown);
+  stream.pipe(res);
+
+  // const markdown = fs.readFileSync("./public/markdown.md", {
+  //   encoding: "utf8",
+  // });
+  // res.json(markdown);
+});
+
+app.use((req, res) => {
+  // redirect to index.html
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 app.listen(port, () => {

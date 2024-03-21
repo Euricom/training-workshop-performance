@@ -1,0 +1,13 @@
+{
+  "name": "training-workshop-performance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:slow": "pnpm --filter client -r build  && pnpm --filter server -r start",
+    "start:improved": "pnpm --filter client-improved -r build  && pnpm --filter server-improved -r start"
+  },
+  "keywords": [],
+  "author": "peter & arne",
+  "license": "MIT"
+}

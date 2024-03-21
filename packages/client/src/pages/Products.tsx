@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+// Tip: use fetch (or oFetch) as a smaller alternative to axios
+// Tip: don't load images via JSON, use a separate endpoint for images
+// Tip: optimize images and using `https://squoosh.app/`
+
 const Products = () => {
   const [products, setProducts] = useState<any>([]);
 

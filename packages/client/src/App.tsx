@@ -8,6 +8,23 @@ import Calculator from "./pages/Calculator.tsx";
 import Markdown from "./pages/Markdown.tsx";
 import Users from "./pages/Users.tsx";
 
+// Lazy routes
+// import { lazy } from "react";
+// const App = () => {
+//   const Home = lazy(() => import(`./pages/Home.tsx`));
+//   const About = lazy(() => import(`./pages/About.tsx`));
+//   return (
+//     <BrowserRouter>
+//       <Suspense fallback={<p> Loading...</p>}>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/about" element={<About />} />
+//         </Routes>
+//       </Suspense>
+//     </BrowserRouter>
+//   );
+// };
+
 const App = () => {
   return (
     <div>

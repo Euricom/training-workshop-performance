@@ -1,5 +1,6 @@
 import home from "/home.jpg";
 
+// Tip: Optimize the image & use `srcset`
 const Home = () => {
   return (
     <>
