@@ -235,6 +235,12 @@ Cache-Control "public, max-age=31536000, immutable
 - [React 19](https://daily.dev/blog/react-19-everything-you-need-to-know-in-one-place) 
 - [Million.dev](https://www.youtube.com/watch?v=VkezQMb1DHw&t=166s)
 
+### .NET vs Express vs Fastify vs Hono vs Rust
+
+- https://medium.com/deno-the-complete-reference/net-vs-java-vs-go-vs-rust-hello-uuid-performance-7ead3e7e79aa
+- https://medium.com/deno-the-complete-reference/net-vs-node-js-frameworks-hello-uuid-performance-c970a5d8548a
+- https://medium.com/deno-the-complete-reference/deno-express-vs-fastify-vs-oak-vs-hono-whos-runs-fastest-0657d791c17a#:~:text=In%20performance%20testing%2C%20Express%20emerged,spectrum%20of%20Express%20and%20Hono.
+
 ## Let work together
 
 1. Analyze & improve the performance of the demo app
